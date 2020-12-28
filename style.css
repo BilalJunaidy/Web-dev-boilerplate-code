@@ -1,16 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
+    /* By default in CSS, if you have an element that has a width and/or height css property set, 
+    then this sets the height and width of the content box....However, if you were to add either 
+    a value for border and/or padding for that element, then the total width and height of the 
+    element in question will adjust using the following formulae
+    width + padding + border = actual width of an element
+    height + padding + border = actual height of an element
+
+    Now, this (^) was the default CSS BX. However, what if we don't want the size of the element to 
+    change were we do add height and width of the element but rather be contraints by it. 
+    So for example if we use the box-sizing: border-box; property on an element, 
+    then the impact of this would be that lets say you set the height and width of an element to be 100px, 
+    then this 100px would include also the pixels alloted for the border and for the padding. 
+
+    Just need to make sure that if I am using the following box-sizing property, then I am making sure not to 
+    have a negative value for the height and the width of the content box. 
+
+    Check out the illustration in the following link:
+    https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+      */
     box-sizing: border-box;
 }
 
 body {
+    /* The following property is essentially is specifying the font for the text in the body tag. 
+    The first provided font is family name, and the second one is the fall back if the first one 
+    is not available in the browser. 
+    The second one is essentially the generic family name such that if the first font is not available
+    the browser can find a font similar to the it in the generic family font collection.  
+     */
     font-family: Roboto, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+    /* 
     justify-content: center;
     height: 100vh;
     overflow: hidden;
+     */
+    /* The CSS margin properties are used to create space around elements, outside of any defined borders. */
     margin: 0;
+
+    /* 
+    The following two properties are simply telling the browser that we want to body element of our HTML to act as a flexbox,
+    and therefore, by extension we want the elements within it to be flex elements. 
+    The flex-direction property is telling the browser that we want the child items of the body element to be stacked up vertically.  
+     */
+    display: flex;
+    flex-direction: column;
+
+    /*
+    This property is telling the browser, that we want to the elements align the items within the body tag, so in this example all of the flex box items 
+    to the center. 
+    Center in this situation (i.e. where the flex-direction is set to columns) would align the items to the center horizontally. 
+    Otherwise, it would align the items to the center vertically.   
+     */
+    align-items: center;
+
+    /* This is setting the height of the body to be equal to 100vh, which basically represents the entire height of the view port. 
+    Hence, the name 'view-port height'    */
+    height: 100vh;
+    
+    /* The align-items property of flex-box aligns the items inside a flex container along the cross axis just like justify-content does along the main axis.
+    (For the default flex-direction: row the cross axis corresponds to vertical and the main axis corresponds to horizontal. With flex-direction: column 
+    those two are interchanged respectively). 
+    */
+    justify-content: center;
+
+    /* 
+    This property basically disables the feature to scroll down or across the page if there is content that doesn't fit onto the page directly. 
+     */
+    overflow: hidden;
+
 }
